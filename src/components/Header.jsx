@@ -74,15 +74,16 @@ const Header = () => {
           <div className="w-[222px] h-[172px] gap-8 grid relative">
             {navItems.map(({ label, path, number }) => (
               <li className={`h-[19px] relative`} key={path}>
-                <a
+                <Link
                   className={`flex gap-3 relative ${
                     currentPath === path ? "active-a" : ""
                   }`}
-                  href={path}
+                  to={path} // Use "to" instead of "href"
+                  onClick={() => setisopen(false)} // Close the menu after navigation
                 >
                   <span className="tracking-[2px] text-[16px]">{number}</span>
                   <span className="tracking-[2px] text-[16px]">{label}</span>
-                </a>
+                </Link>
               </li>
             ))}
           </div>
