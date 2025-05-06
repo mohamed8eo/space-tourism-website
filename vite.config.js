@@ -4,10 +4,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(),],
-  base : "/",
-  server: {
-    open: true,
-    port: 3001
-  }
-})
+  plugins: [react(), tailwindcss()],
+  base: "/space-tourism-website/", // Matches the repository name
+});

@@ -16,34 +16,34 @@ function UseBodyBackground() {
     // Dynamic background logic
     const backgrounds = {
       "/": isMobile
-        ? "url('/assets/home/background-home-mobile.jpg')"
+        ? `url('${import.meta.env.BASE_URL}assets/home/background-home-mobile.jpg')`
         : isTablet
-        ? "url('/assets/home/background-home-tablet.jpg')"
-        : "url('/assets/home/background-home-desktop.jpg')",
+        ? `url('${import.meta.env.BASE_URL}assets/home/background-home-tablet.jpg')`
+        : `url('${import.meta.env.BASE_URL}assets/home/background-home-desktop.jpg')`,
 
       "/home": isMobile
-        ? "url('/assets/home/background-home-mobile.jpg')"
+        ? `url('${import.meta.env.BASE_URL}assets/home/background-home-mobile.jpg')`
         : isTablet
-        ? "url('/assets/home/background-home-tablet.jpg')"
-        : "url('/assets/home/background-home-desktop.jpg')",
+        ? `url('${import.meta.env.BASE_URL}assets/home/background-home-tablet.jpg')`
+        : `url('${import.meta.env.BASE_URL}assets/home/background-home-desktop.jpg')`,
 
       "/destination": isMobile
-        ? "url('/assets/destination/background-destination-mobile.jpg')"
+        ? `url('${import.meta.env.BASE_URL}assets/destination/background-destination-mobile.jpg')`
         : isTablet
-        ? "url('/assets/destination/background-destination-tablet.jpg')"
-        : "url('/assets/destination/background-destination-desktop.jpg')",
+        ? `url('${import.meta.env.BASE_URL}assets/destination/background-destination-tablet.jpg')`
+        : `url('${import.meta.env.BASE_URL}assets/destination/background-destination-desktop.jpg')`,
 
       "/crew": isMobile
-        ? "url('/assets/crew/background-crew-mobile.jpg')"
+        ? `url('${import.meta.env.BASE_URL}assets/crew/background-crew-mobile.jpg')`
         : isTablet
-        ? "url('/assets/crew/background-crew-tablet.jpg')"
-          : "url('/assets/crew/background-crew-desktop.jpg')",
-      
+        ? `url('${import.meta.env.BASE_URL}assets/crew/background-crew-tablet.jpg')`
+        : `url('${import.meta.env.BASE_URL}assets/crew/background-crew-desktop.jpg')`,
+
       "/technology": isMobile
-        ? "url('/assets/technology/background-technology-mobile.jpg')"
+        ? `url('${import.meta.env.BASE_URL}assets/technology/background-technology-mobile.jpg')`
         : isTablet
-        ? "url('/assets/technology/background-technology-tablet.jpg')"
-        : "url('/assets/technology/background-technology-desktop.jpg')",
+        ? `url('${import.meta.env.BASE_URL}assets/technology/background-technology-tablet.jpg')`
+        : `url('${import.meta.env.BASE_URL}assets/technology/background-technology-desktop.jpg')`,
     };
 
     const bg = backgrounds[pathname] || "none";

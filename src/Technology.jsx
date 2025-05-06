@@ -15,7 +15,7 @@ const Technology = () => {
 
   useEffect(() => {
     // Fetch data from JSON
-    fetch('/data.json')
+    fetch(`${import.meta.env.BASE_URL}data.json`) // Updated fetch path
       .then((response) => response.json())
       .then((json) => {
         setdata(json);
@@ -55,7 +55,11 @@ const Technology = () => {
           <div className="w-[327px] h-[677px] gap-8 flex flex-col md:w-[688px] md:h-[800px] lg:w-[1275px] lg:h-[734px] lg:flex-row-reverse lg:items-center lg:ml-[93px]">
             <div className="h-[322px] w-[327px] pt-16 md:w-[688px] md:h-[421px] lg:w-[608px] lg:h-[734px] relative">
               <img
-                src={isPortrait ? selected.images.portrait : selected.images.landscape} // Dynamically switch image
+                src={
+                  isPortrait
+                    ? `${import.meta.env.BASE_URL}${selected.images.portrait}` // Updated portrait image path
+                    : `${import.meta.env.BASE_URL}${selected.images.landscape}` // Updated landscape image path
+                }
                 alt={`${selected.name} image`}
                 className="h-[258px] w-[768px] absolute left-0 md:h-[357px] md:w-[800px] lg:h-[600px] lg:w-[608px]"
               />
@@ -63,17 +67,22 @@ const Technology = () => {
             <div className="h-[323px] w-[327px] gap-10 flex flex-col md:w-[688px] md:h-[347px] md:items-center lg:gap-16 lg:w-[635px] lg:h-[304px] lg:flex-row ">
               <div className="gap-4 flex justify-center">
                 <ul className="flex gap-2 justify-center w-[327px] h-[40px] md:w-[512px] md:h-[56px] lg:w-[80px] lg:h-[304px] lg:gap-8 lg:flex-col">
-                  {data.technology && data.technology.map((technologys, index) => (
-                    <li
-                      key={index}
-                      className={`text-white flex justify-center items-center w-[40px] h-[40px] rounded-full
-                        text-[18px] border-[1px] border-solid border-[#ffffff40] h1-fontfamily cursor-pointer
-                        ${selected.name === technologys.name ? "active_number" : "hover:border-white"} lg:w-[80px] lg:h-[80px]`}
-                      onClick={() => setselected(technologys)}
-                    >
-                      {index + 1}
-                    </li>
-                  ))}
+                  {data.technology &&
+                    data.technology.map((technologys, index) => (
+                      <li
+                        key={index}
+                        className={`text-white flex justify-center items-center w-[40px] h-[40px] rounded-full
+                          text-[18px] border-[1px] border-solid border-[#ffffff40] h1-fontfamily cursor-pointer
+                          ${
+                            selected.name === technologys.name
+                              ? "active_number"
+                              : "hover:border-white"
+                          } lg:w-[80px] lg:h-[80px]`}
+                        onClick={() => setselected(technologys)}
+                      >
+                        {index + 1}
+                      </li>
+                    ))}
                 </ul>
               </div>
               <div className="flex gap-4 justify-center w-[327px] h-[243px] flex-col items-center md:w[512px] md:h-[251px] lg:gap-6 lg:w-[491px] lg:h-[301px] ">
@@ -88,7 +97,9 @@ const Technology = () => {
                   </div>
                 </div>
                 <div className="h-[162px] text-center w-[359px] text-[16px] text-[#D0D6F9] md:w-[512px] md:h-[145px] lg:text-[18px] lg:w-[491px] lg:h-[160px] lg:text-left">
-                  <p className="h-[162px] leading-[180%] md:h-[145px] lg:h-[160px] lg:w-[504px]">{selected.description}</p>
+                  <p className="h-[162px] leading-[180%] md:h-[145px] lg:h-[160px] lg:w-[504px]">
+                    {selected.description}
+                  </p>
                 </div>
               </div>
             </div>

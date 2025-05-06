@@ -1,19 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { BrowserRouter, createBrowserRouter, RouterProvider, Navigate } from "react-router";
-import App from './App.jsx'
-import Destination from './Destination.jsx';
-import Crew from './Crew.jsx';
-import Technology from './Technology.jsx';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import App from './App';
+import Destination from './Destination';
+import Crew from './Crew';
+import Technology from './Technology';
 
-const router = createBrowserRouter([
-  { path: "/", element: <Navigate to="/home" replace /> },
-  { path: "/home", element: <App /> },
-  { path: "/destination", element: <Destination /> },
-  { path: "/crew", element: <Crew /> },
-  { path: "/technology", element: <Technology /> }
-])
 createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <BrowserRouter basename="/space-tourism-website">
+    <Routes>
+      <Route path="/" element={<Navigate to="/home" replace />} />
+      <Route path="/home" element={<App />} />
+      <Route path="/destination" element={<Destination />} />
+      <Route path="/crew" element={<Crew />} />
+      <Route path="/technology" element={<Technology />} />
+      <Route path="*" element={<Navigate to="/home" replace />} />
+    </Routes>
+  </BrowserRouter>
 );
